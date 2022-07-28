@@ -3,7 +3,9 @@
 #### **🛒 Technologies**
 
 - Frontend
-
+  
+  - React
+  - Vite
   - Material UI
   - Axios
   - React-router-dom
