@@ -13,7 +13,10 @@ function NotFound() {
   const classes = useStyles()
   return (
     <Box className={classes.root}>
-      <img src="notfound.png" alt="notfound" />
+      <img
+        src="https://res.cloudinary.com/dlsebuwyl/image/upload/v1659013080/Test/notfound_nl8vgw.png"
+        alt="notfound"
+      />
     </Box>
   )
 }

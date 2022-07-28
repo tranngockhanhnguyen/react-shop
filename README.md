@@ -12,6 +12,7 @@
   - React-hook-form
   - Dompurify
   - Notistack
+  - Query-string
 
 #### **🏨 Folder structure**
 

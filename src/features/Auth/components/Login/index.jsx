@@ -27,6 +27,7 @@ function Login({ closeDialog }) {
       if (closeDialog) {
         closeDialog()
       }
+      enqueueSnackbar('Chào mừng bạn trở lại!', { variant: 'success' })
     } catch (error) {
       enqueueSnackbar(error.message, { variant: 'error' })
     }

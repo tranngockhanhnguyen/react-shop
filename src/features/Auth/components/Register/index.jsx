@@ -31,7 +31,7 @@ function Register({ closeDialog }) {
         closeDialog()
       }
 
-      enqueueSnackbar('Register successfully !!!', { variant: 'success' })
+      enqueueSnackbar('Đăng kí tài khoản thành công!', { variant: 'success' })
     } catch (error) {
       enqueueSnackbar(error.message, { variant: 'error' })
     }
