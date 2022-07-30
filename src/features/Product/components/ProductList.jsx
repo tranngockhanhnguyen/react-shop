@@ -6,6 +6,9 @@ import Product from './Product'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+  },
+  notfound: {
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     gap: theme.spacing(1),
@@ -32,13 +35,13 @@ function ProductList({ data }) {
       {data.length > 0 ? (
         <Grid container>
           {data.map((product) => (
-            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <Grid item key={product.id} xs={12} sm={6} md={4} lg={3} className={classes.root}>
               <Product product={product} />
             </Grid>
           ))}
         </Grid>
       ) : (
-        <Box className={classes.root}>
+        <Box className={classes.notfound}>
           <InfoOutlined />
           <Typography variant="h6">
             Rất tiếc, không tìm thấy sản phẩm phù hợp với lựa chọn của bạn

@@ -6,10 +6,12 @@ import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: 'flex',
+    flexDirection: 'column',
     padding: theme.spacing(1),
-    cursor: 'pointer',
 
     '&:hover': {
+      cursor: 'pointer',
       boxShadow: 'rgb(0 0 0 / 10%) 0px 0px 20px;',
       zIndex: 1,
       opacity: 0.95,
@@ -18,6 +20,19 @@ const useStyles = makeStyles((theme) => ({
   thumbnail: {
     padding: theme.spacing(1),
     minWidth: '200px',
+    flexShrink: 0,
+  },
+  content: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  name: {
+    flex: 1,
+  },
+  price: {
+    flexShrink: 0,
+    marginTop: 'auto',
   },
   salePrice: {
     marginRight: theme.spacing(1),
@@ -49,21 +64,26 @@ function Product({ product }) {
       <Box className={classes.thumbnail}>
         <img src={getThumbnailUrl(product)} alt={product.name} width="100%" />
       </Box>
-      <Typography>{product.name}</Typography>
 
-      <Rating name="read-only" value={5} readOnly size="small" />
+      <Box className={classes.content}>
+        <Typography className={classes.name}>{product.name}</Typography>
 
-      <Typography>
-        <Box component="span" className={classes.salePrice}>
-          {formatPrice(product.salePrice)}
+        <Box className={classes.price}>
+          <Rating name="read-only" value={5} readOnly size="small" />
+
+          <Typography>
+            <Box component="span" className={classes.salePrice}>
+              {formatPrice(product.salePrice)}
+            </Box>
+
+            {product.promotionPercent > 0 && (
+              <Box component="span" className={classes.promotionPercent}>
+                {` -${product.promotionPercent}%`}
+              </Box>
+            )}
+          </Typography>
         </Box>
-
-        {product.promotionPercent > 0 && (
-          <Box component="span" className={classes.promotionPercent}>
-            {` -${product.promotionPercent}%`}
-          </Box>
-        )}
-      </Typography>
+      </Box>
     </Box>
   )
 }
